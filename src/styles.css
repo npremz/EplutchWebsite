@@ -1,0 +1,17 @@
+@import 'tailwindcss';
+
+:root {
+  --color-blue: #beeaff;
+  --color-deep-blue: #2a99ce;
+  --color-lines: #c2c2c2;
+}
+
+.dashed-divider {
+  width: 1px;
+  height: 100%;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--color-lines) 0 4px,
+    transparent 4px 8px
+  );
+}
