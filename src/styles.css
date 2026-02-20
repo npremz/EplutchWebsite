@@ -1,17 +1,48 @@
 @import 'tailwindcss';
 
-:root {
+@font-face {
+  font-family: 'Instrument Serif';
+  src: url('./assets/fonts/InstrumentSerif-Regular.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Instrument Serif';
+  src: url('./assets/fonts/InstrumentSerif-Italic.woff2') format('woff2');
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Fraktion Mono';
+  src: url('./assets/fonts/PPFraktionMono-Light.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+@theme {
   --color-blue: #beeaff;
   --color-deep-blue: #2a99ce;
   --color-lines: #c2c2c2;
+  --color-black: #101010;
+  --color-text: #101010;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-mono: 'PP Fraktion Mono', 'Courier New', monospace;
 }
 
 .dashed-divider {
   width: 1px;
   height: 100%;
-  background-image: repeating-linear-gradient(
-    to bottom,
-    var(--color-lines) 0 4px,
-    transparent 4px 8px
-  );
+  background-image: repeating-linear-gradient(to bottom, var(--color-lines) 0 4px, transparent 4px 8px);
+}
+
+.dashed-divider-horizontal {
+  width: 100%;
+  height: 1px;
+  border: 0;
+  background-image: repeating-linear-gradient(to right, var(--color-lines) 0 4px, transparent 4px 8px);
 }
