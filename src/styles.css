@@ -29,9 +29,14 @@
   --color-deep-blue: #2a99ce;
   --color-lines: #c2c2c2;
   --color-black: #101010;
+  --color-white: #F2EFED;
   --color-text: #101010;
   --font-serif: 'Instrument Serif', Georgia, serif;
   --font-mono: 'PP Fraktion Mono', 'Courier New', monospace;
+}
+
+.body{
+  background-color: #F2EFED;
 }
 
 .dashed-divider {
