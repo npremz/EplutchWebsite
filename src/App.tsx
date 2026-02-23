@@ -10,16 +10,18 @@ import Layout from './Layout'
 
 function App() {
   return (
-    <Layout>
-      <Header />
-      <Hero />
-      <About />
-      <Carousels />
-      <Choice />
-      <Waitlist />
-      <Sandbox />
+    <>
+      <Layout>
+        <Header />
+        <Hero />
+        <About />
+        <Carousels />
+        <Choice />
+        <Waitlist />
+        <Sandbox />
+      </Layout>
       <Footer />
-    </Layout>
+    </>
   )
 }
 

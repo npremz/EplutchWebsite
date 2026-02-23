@@ -66,20 +66,20 @@ function PlushVelocity() {
   }, [])
 
   return (
-    <div className="overflow-x-clip py-8">
+    <div className="overflow-x-clip py-8 md:my-16">
       <div ref={trackRef} className="flex will-change-transform">
         <div ref={segmentRef} className="flex shrink-0 items-center gap-4 px-3">
-          <span className="font-serif text-[112px] leading-none text-text">
+          <span className="font-serif text-[112px] md:text-[280px] xl:text-[400px]  2xl:text-[46rem] leading-none text-text">
             Froggy • Piou • Teddi •
           </span>
         </div>
         <div aria-hidden="true" className="flex shrink-0 items-center gap-4 px-3">
-          <span className="font-serif text-[112px] leading-none text-text">
+          <span className="font-serif text-[112px] md:text-[280px] xl:text-[400px]  2xl:text-[46rem] leading-none text-text">
             Froggy • Piou • Teddi •
           </span>
         </div>
         <div aria-hidden="true" className="flex shrink-0 items-center gap-4 px-3">
-          <span className="font-serif text-[112px] leading-none text-text">
+          <span className="font-serif text-[112px] md:text-[280px] xl:text-[400px]  2xl:text-[46rem] leading-none text-text">
             Froggy • Piou • Teddi •
           </span>
         </div>
@@ -90,18 +90,20 @@ function PlushVelocity() {
 
 function Footer() {
   return (
-    <footer className="mt-16 rounded-[10px] bg-blue px-2 pb-8">
-      <div className="flex justify-center py-16">
-        <img src="/logo.svg" alt="Eplutch logo" className="h-10 w-auto" />
+    <footer className="my-16 mx-2 rounded-[10px] bg-blue px-2 pb-8 md:mx-6 md:mt-50 md:px-5 lg:mx-16 lg:mt-38 xl:mt-60">
+      <div className="flex justify-center py-24">
+        <img src="/logoBlack.svg" alt="Eplutch logo" className="h-10 w-auto" />
       </div>
 
       <hr className="dashed-divider-horizontal" />
 
-      <PlushVelocity />
+      <div className="-mx-2 md:-mx-5">
+        <PlushVelocity />
+      </div>
 
       <hr className="dashed-divider-horizontal" />
 
-      <div className="flex flex-col items-center mt-8 gap-5">
+      <div className="flex flex-col items-center mt-8 gap-5 md:flex-row md:justify-between">
         <p className="font-mono text-sm uppercase text-text">
           Copyright {new Date().getFullYear()}
         </p>

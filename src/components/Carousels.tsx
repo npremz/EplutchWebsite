@@ -89,28 +89,28 @@ function VelocityRow({ label, imageSrc, imageAlt, baseSpeed }: VelocityRowProps)
     <div className="w-full overflow-x-clip">
       <div ref={trackRef} className="flex will-change-transform">
         <div ref={segmentRef} className="flex shrink-0 items-center px-3">
-          <span className="font-serif text-[44px] md:text-[80px] leading-none text-text">
+          <span className="font-serif text-[44px] md:text-[80px] lg:text-[112px] 2xl:text-[150px] leading-none text-text">
             {label}{' '}
           </span>
-          <span className="font-serif text-[69px] md:text-[125px] leading-none text-text">(</span>
-          <img src={imageSrc} alt={imageAlt} className="h-[60px] md:h-[110px] w-auto object-contain" />
-          <span className="font-serif text-[69px] md:text-[125px] leading-none text-text">)</span>
+          <span className="font-serif text-[69px] md:text-[125px] lg:text-[175px] 2xl:text-[235px] leading-none text-text">(</span>
+          <img src={imageSrc} alt={imageAlt} className="h-[60px] md:h-[110px] lg:h-[140px] 2xl:h-[200px] w-auto object-contain" />
+          <span className="font-serif text-[69px] md:text-[125px] lg:text-[175px] 2xl:text-[235px] leading-none text-text">)</span>
         </div>
         <div aria-hidden="true" className="flex shrink-0 items-center px-3">
-          <span className="font-serif text-[44px] md:text-[80px] leading-none text-text">
+          <span className="font-serif text-[44px] md:text-[80px] lg:text-[112px] 2xl:text-[150px] leading-none text-text">
             {label}{' '}
           </span>
-          <span className="font-serif text-[69px] md:text-[125px] leading-none text-text">(</span>
-          <img src={imageSrc} alt="" className="h-[60px] md:h-[110px] w-auto object-contain" />
-          <span className="font-serif text-[69px] md:text-[125px] leading-none text-text">)</span>
+          <span className="font-serif text-[69px] md:text-[125px] lg:text-[175px] 2xl:text-[235px] leading-none text-text">(</span>
+          <img src={imageSrc} alt="" className="h-[60px] md:h-[110px] lg:h-[140px] 2xl:h-[200px] w-auto object-contain" />
+          <span className="font-serif text-[69px] md:text-[125px] lg:text-[175px] 2xl:text-[235px] leading-none text-text">)</span>
         </div>
         <div aria-hidden="true" className="flex shrink-0 items-center px-3">
-          <span className="font-serif text-[44px] md:text-[80px] leading-none text-text">
+          <span className="font-serif text-[44px] md:text-[80px] lg:text-[112px] 2xl:text-[150px] leading-none text-text">
             {label}{' '}
           </span>
-          <span className="font-serif text-[69px] md:text-[125px] leading-none text-text">(</span>
-          <img src={imageSrc} alt="" className="h-[60px] md:h-[110px] w-auto object-contain" />
-          <span className="font-serif text-[69px] md:text-[125px] leading-none text-text">)</span>
+          <span className="font-serif text-[69px] md:text-[125px] lg:text-[175px] 2xl:text-[235px] leading-none text-text">(</span>
+          <img src={imageSrc} alt="" className="h-[60px] md:h-[110px] lg:h-[140px] 2xl:h-[200px] w-auto object-contain" />
+          <span className="font-serif text-[69px] md:text-[125px] lg:text-[175px] 2xl:text-[235px] leading-none text-text">)</span>
         </div>
       </div>
     </div>
@@ -119,7 +119,7 @@ function VelocityRow({ label, imageSrc, imageAlt, baseSpeed }: VelocityRowProps)
 
 function Carousels() {
   return (
-    <section className="mx-[calc(50%-50vw)] mt-16 md:mt-50 space-y-3 overflow-x-clip">
+    <section className="mx-[calc(50%-50dvw)] mt-16 md:mt-50 lg:mt-38 xl:mt-60 space-y-4 md:space-y-8 lg:space-y-10 2xl:space-y-16 overflow-x-clip">
       <VelocityRow
         label="Sane Materials"
         imageSrc={image01}

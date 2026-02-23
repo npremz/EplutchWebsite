@@ -1,6 +1,6 @@
 const choices = [
   {
-    title: 'Froggy',
+    title: 'Froggi',
   },
   {
     title: 'Piou',
@@ -12,20 +12,20 @@ const choices = [
 
 function Choice() {
   return (
-    <section className="mt-16 md:mt-50">
+    <section className="mt-16 md:mt-50 lg:mt-38 xl:mt-60">
       <div className="flex flex-col items-center">
-        <h2 className="font-serif text-[2.5rem] md:text-[5rem] leading-none text-text max-w-[250px] md:max-w-[500px] text-center">Choisissez votre compagnon anti-stress préféré</h2>
-        <p className="mt-8 md:mt-10 font-mono text-xs uppercase text-text text-center max-w-[280px]">
+        <h2 className="font-serif text-[2.5rem] md:text-[5rem] 2xl:text-[7rem] leading-none text-text max-w-[250px] md:max-w-[500px] 2xl:max-w-[750px] text-center">Choisissez votre compagnon anti-stress préféré</h2>
+        <p className="mt-8 md:mt-10 2xl:mt-16 font-mono text-xs uppercase text-text text-center max-w-[280px]">
           Trois personnages craquants, trois personnalités. Lequel adopterez-vous ?
         </p>
       </div>
 
-      <div className="mt-16 md:mt-20 flex flex-col">
+      <div className="mt-16 md:mt-20 lg:mt-24 xl:mt-32 flex flex-col">
         {choices.map((choice, index) => (
           <div key={choice.title}>
             <button type="button" className="w-full text-left">
               <p
-                className={`font-serif text-[8rem] md:text-[19rem] leading-none text-text text-center ${
+                className={`font-serif text-[8rem] md:text-[19rem] lg:text-[24rem] 2xl:text-[46rem] leading-none text-text text-center ${
                   index === 0 ? 'pb-4 md:pb-12' : ''
                 }`}
               >

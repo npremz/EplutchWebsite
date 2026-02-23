@@ -33,10 +33,17 @@
   --color-text: #101010;
   --font-serif: 'Instrument Serif', Georgia, serif;
   --font-mono: 'PP Fraktion Mono', 'Courier New', monospace;
+  --breakpoint-xl: 90rem;
+  --breakpoint-2xl: 137.5rem;
 }
 
 .body{
   background-color: #F2EFED;
+}
+
+html,
+body {
+  overflow-x: hidden;
 }
 
 .dashed-divider {
@@ -50,4 +57,88 @@
   height: 1px;
   border: 0;
   background-image: repeating-linear-gradient(to right, var(--color-lines) 0 4px, transparent 4px 8px);
+}
+
+.sandbox-outline > path {
+  fill: none !important;
+  stroke: var(--color-lines);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.lava-lamp-bg {
+  position: relative;
+  isolation: isolate;
+  background-color: #5ab8df;
+}
+
+.lava-lamp-bg::before,
+.lava-lamp-bg::after {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  pointer-events: none;
+  border-radius: 9999px;
+  filter: blur(44px);
+  transform-origin: center;
+}
+
+.lava-lamp-bg::before {
+  background:
+    radial-gradient(circle at 25% 30%, #E5CF86 0 18%, transparent 48%),
+    radial-gradient(circle at 72% 28%, #ddfad6 0 20%, transparent 32%),
+    radial-gradient(circle at 38% 78%, #5BB8E2 0 22%, transparent 25%);
+  animation: lava-drift-a 9s ease-in-out infinite alternate;
+}
+
+.lava-lamp-bg::after {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.26'/%3E%3C/svg%3E"),
+    radial-gradient(circle at 78% 70%, #ddfad6 0 22%, transparent 56%),
+    radial-gradient(circle at 18% 68%, #e6d18a 0 16%, transparent 46%),
+    radial-gradient(circle at 52% 42%, #ddfad6 0 14%, transparent 40%);
+  background-size: 180px 180px, auto, auto, auto;
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat;
+  mix-blend-mode: soft-light;
+  opacity: 0.82;
+  animation: lava-drift-b 11s ease-in-out infinite alternate;
+}
+
+.lava-lamp-bg > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes lava-drift-a {
+  0% {
+    transform: translate3d(-6%, 4%, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(8%, -6%, 0) scale(1.16);
+  }
+  100% {
+    transform: translate3d(-5%, 5%, 0) scale(1.08);
+  }
+}
+
+@keyframes lava-drift-b {
+  0% {
+    transform: translate3d(5%, -4%, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-9%, 7%, 0) scale(1.18);
+  }
+  100% {
+    transform: translate3d(6%, -5%, 0) scale(1.1);
+  }
+}
+
+.hero-3d-bg {
+  background: transparent;
+}
+
+.hero-3d-bg canvas {
+  width: 100% !important;
+  height: 100% !important;
+  filter: saturate(1.08) contrast(1.02);
 }
