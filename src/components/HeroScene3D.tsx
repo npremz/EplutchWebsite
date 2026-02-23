@@ -8,9 +8,10 @@ type FloatingSphereProps = {
   scale: number
   speed: number
   phase: number
+  introDelay: number
 }
 
-function FloatingSphere({ color, position, scale, speed, phase }: FloatingSphereProps) {
+function FloatingSphere({ color, position, scale, speed, phase, introDelay }: FloatingSphereProps) {
   const meshRef = useRef<Mesh>(null)
 
   useFrame(({ clock }) => {
@@ -18,14 +19,25 @@ function FloatingSphere({ color, position, scale, speed, phase }: FloatingSphere
     if (!mesh) return
 
     const t = clock.getElapsedTime()
+    const duration = 1.1
+    const p = Math.min(Math.max((t - introDelay) / duration, 0), 1)
+    const easeOutElasticSoft = (x: number) => {
+      if (x === 0) return 0
+      if (x === 1) return 1
+      const c5 = (2 * Math.PI) / 5.4
+      return Math.pow(2, -10 * x) * Math.sin((x * 10 - 0.6) * c5) + 1
+    }
+    const introScale = easeOutElasticSoft(p)
+
     mesh.position.y = position[1] + Math.sin(t * speed + phase) * 0.2
     mesh.position.x = position[0] + Math.cos(t * speed * 0.7 + phase) * 0.15
     mesh.rotation.y = t * speed * 0.45
     mesh.rotation.x = t * speed * 0.22
+    mesh.scale.setScalar(scale * introScale)
   })
 
   return (
-    <mesh ref={meshRef} position={position} scale={scale}>
+    <mesh ref={meshRef} position={position} scale={0}>
       <sphereGeometry args={[1, 64, 64]} />
       <meshPhysicalMaterial
         color={color}
@@ -39,9 +51,11 @@ function FloatingSphere({ color, position, scale, speed, phase }: FloatingSphere
 }
 
 function Scene() {
-  const { viewport } = useThree()
+  const { viewport, size } = useThree()
   const topY = viewport.height * 0.10
   const sideX = viewport.width * 0.3
+  const isTabletRange = size.width <= 1439
+  const responsiveScale = isTabletRange ? 0.5 : 1
 
   return (
     <>
@@ -49,9 +63,9 @@ function Scene() {
       <directionalLight position={[3, 5, 4]} intensity={1.2} />
       <pointLight position={[-4, -2, 3]} intensity={0.8} color="#ffffff" />
 
-      <FloatingSphere color="#7adf70" position={[0, -0.12, 0.15]} scale={1.12} speed={0.85} phase={0} />
-      <FloatingSphere color="#5ab8df" position={[sideX, topY, 0.2]} scale={0.95} speed={0.95} phase={1.2} />
-      <FloatingSphere color="#e6d18a" position={[-sideX, topY, 0.4]} scale={0.82} speed={1.05} phase={2.1} />
+      <FloatingSphere color="#7adf70" position={[0, -0.12, 0.15]} scale={1.12 * responsiveScale} speed={0.85} phase={0} introDelay={0} />
+      <FloatingSphere color="#5ab8df" position={[sideX, topY, 0.2]} scale={0.95 * responsiveScale} speed={0.95} phase={1.2} introDelay={0.04} />
+      <FloatingSphere color="#e6d18a" position={[-sideX, topY, 0.4]} scale={0.82 * responsiveScale} speed={1.05} phase={2.1} introDelay={0.08} />
     </>
   )
 }
